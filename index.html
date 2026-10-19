@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daymark · 每日记录</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">✦</span><span>daymark</span></div>
+      <div class="sidebar-label">工作空间</div>
+      <nav>
+        <button class="nav-item active" data-view="today"><span>◷</span> 今天 <b id="todayCount">3</b></button>
+        <button class="nav-item" data-view="history"><span>▦</span> 历史记录</button>
+        <button class="nav-item" data-view="notes"><span>✎</span> 备忘录</button>
+      </nav>
+      <div class="sidebar-label section-label">分类</div>
+      <div class="category-list">
+        <button class="category-chip academic active"><i></i> 学业 <span>2</span></button>
+        <button class="category-chip internship"><i></i> 实习 <span>1</span></button>
+        <button class="category-chip other"><i></i> 其他 <span>1</span></button>
+      </div>
+      <div class="sidebar-footer"><div class="avatar">Y</div><div><strong>你的空间</strong><small>本地保存</small></div><span class="settings">⚙</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumb">我的记录 <span>/</span> <strong id="pageTitle">今天</strong></div><div class="top-actions"><button class="icon-button">⌘ K</button><button class="icon-button">•••</button></div></header>
+      <section class="hero"><div><p class="eyebrow">WEDNESDAY · OCTOBER 8, 2026</p><h1 id="heroTitle">今天，做得不错。</h1><p class="hero-sub">把注意力放在下一件值得完成的事上。</p></div><div class="progress-ring"><svg viewBox="0 0 42 42"><circle class="ring-bg" cx="21" cy="21" r="16"></circle><circle class="ring-value" cx="21" cy="21" r="16"></circle></svg><span>43%</span></div></section>
+      <section class="quick-add"><span class="plus">＋</span><input id="taskInput" placeholder="记录一件新事项…" /><select id="categorySelect"><option value="academic">学业</option><option value="internship">实习</option><option value="other">其他</option></select><button id="addTask">添加</button></section>
+      <section class="content-grid" id="todayView">
+        <div class="task-column"><div class="column-heading"><div><span class="dot academic-dot"></span><h2>学业</h2><small>专注成长</small></div><span class="count">2 项</span></div><div class="task-list" data-category="academic"></div></div>
+        <div class="task-column"><div class="column-heading"><div><span class="dot internship-dot"></span><h2>实习</h2><small>积累经验</small></div><span class="count">1 项</span></div><div class="task-list" data-category="internship"></div></div>
+        <div class="task-column"><div class="column-heading"><div><span class="dot other-dot"></span><h2>其他</h2><small>生活片段</small></div><span class="count">1 项</span></div><div class="task-list" data-category="other"></div></div>
+      </section>
+      <section class="history-view" id="historyView" hidden><div class="history-head"><div><p class="eyebrow">YOUR TIMELINE</p><h2>这些天，你完成了什么？</h2></div><button class="filter-button">最近 7 天⌄</button></div><div id="historyList"></div></section><section class="notes-view" id="notesView" hidden><div class="history-head"><div><p class="eyebrow">QUICK NOTES</p><h2>随手记下，不让灵感溜走。</h2></div><button class="filter-button" id="backupNotes">导出备份</button></div><div class="notes-toolbar"><input id="noteTitle" placeholder="标题（可选）" /><button id="newNote">＋ 新建笔记</button></div><div id="notesList" class="notes-list"></div></section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
